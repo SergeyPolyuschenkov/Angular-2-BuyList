@@ -1,0 +1,10 @@
+input {
+    line-height: 20px;
+}
+button {
+    height: 24px;
+    border: none;
+    background-color: forestgreen;
+    color: white;
+    cursor: pointer;
+}

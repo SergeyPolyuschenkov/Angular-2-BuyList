@@ -1,0 +1,7 @@
+li {
+    font-weight: bold;
+    cursor: pointer;
+}
+li.completed {
+    text-decoration: line-through;
+}
