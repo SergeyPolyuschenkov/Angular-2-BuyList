@@ -10,9 +10,4 @@ import { Item } from '../shared/Item';
 })
 export class ListComponent {
 	@Input() toBuyList: Item[];
-
-	toggle(item: Item) {
-		item.complete = !item.complete;
-	}
-
 }

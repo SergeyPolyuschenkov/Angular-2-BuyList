@@ -1,33 +1,24 @@
+import { Input } from '@angular/core';
+import { Item } from '../shared/Item';
 import { Injectable } from '@angular/core';
+import { toBuyList } from '../shared/data';
 
 @Injectable()
 export class BuyList {
-    private toBuyList = [
-        {
-            title: 'Молоко',
-            complete: false
-        },{
-            title: 'Хлеб',
-            complete: true
-        },{
-            title: 'Компот',
-            complete: false
-        }
-    ];
+    @Input() toBuyList: Item[];
     
-    getCount() {
-        return this.count;
+    getItems(): Item[] {
+      return toBuyList;
     }
 
-    increment() {
-        this.count++;
+    toggle(item) {
+      let index = toBuyList.indexOf(item);
+      toBuyList[index].complete = !toBuyList[index].complete;
     }
 
-    decrement() {
-        this.count--;
+    create(title: string) {
+      const item = new Item(title);
+      toBuyList.push(item);
     }
-
-    reset() {
-        this.count = 0;
-    }
+    
 }

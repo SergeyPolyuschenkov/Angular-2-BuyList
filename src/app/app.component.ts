@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { BuyList } from './components/list.service';
 import { Item } from './shared/Item';
 import { toBuyList } from './shared/data';
 
@@ -10,11 +10,8 @@ import { toBuyList } from './shared/data';
   styleUrls: ['app.component.css']
 })
 export class AppComponent {
+	SelfBuyList = new BuyList();
 	title: string = 'Angular2 BuyList';
-	toBuyList: Item[] = toBuyList;
+	toBuyList: Item[] = this.SelfBuyList.getItems();
   	
-  	create(title: string) {
-  		const item = new Item(title);
-  		this.toBuyList.push(item);
-  	}
 }

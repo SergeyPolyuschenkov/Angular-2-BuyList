@@ -1,7 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-
+import { Component, Input } from '@angular/core';
+import { BuyList } from './list.service';
 import { Item } from '../shared/Item';
-import { toBuyList } from '../shared/data';
 
 @Component({
   moduleId: module.id,
@@ -10,11 +9,11 @@ import { toBuyList } from '../shared/data';
   styleUrls: ['list-item.component.css']
 })
 export class ItemComponent {
+	SelfBuyList = new BuyList();
 	@Input() item: Item;
-	@Output() delete = new EventEmitter();
 
-	toggle() {
-		this.item.complete = !this.item.complete;
+	toggle(item) {
+		this.SelfBuyList.toggle(item);
 	}
 
 }
